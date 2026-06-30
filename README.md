@@ -691,7 +691,7 @@ body {
     <section id="portfolio" class="reveal">
         <span class="text-accent">شركات المنظومة</span>
         <div class="section-intro">
-            <h2>منصاتنا العاملة عالمياً</h2>
+            <h2>منصاتنا العاملة </h2>
             <p>شركات مستقلة إستراتيجياً، متصلة تقنياً وقائمة على الابتكار المشترك تحت قيادة تقنية موحدة.</p>
         </div>
         <div class="ecosystem-grid">
