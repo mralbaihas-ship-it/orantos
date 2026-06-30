@@ -15,42 +15,41 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        /* --- العمارة التصميمية والمتغيرات المستوحاة من الشعار --- */
-        :root {
-            --font-sans: 'Tajawal', 'Plus Jakarta Sans', sans-serif;
-            
-            /* لوحة ألوان أورانتوس الفاخرة - الوضع المضيء (مستوحاة من image_d9c7be_2.jpg) */
-            --bg-main: #ffffff;
-            --bg-surface: #f4f7fa;
-            --bg-card: rgba(255, 255, 255, 0.8);
-            --border-color: rgba(10, 53, 124, 0.08);
-            --text-primary: #0a357c; /* الأزرق الداكن الملكي من الشعار */
-            --text-secondary: #334e68;
-            --text-muted: #627d98;
-            --primary: #0a357c;
-            --accent: #00b4b4; /* الأزرق الفيروزي / المضيء من الشعار */
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(10, 53, 124, 0.06);
-            --shadow: 0 4px 6px -1px rgba(10, 53, 124, 0.05), 0 20px 40px -12px rgba(10, 53, 124, 0.08);
-            --gradient-text: linear-gradient(135deg, #0a357c 0%, #00b4b4 100%);
-        }
+        /* --- 1. إعدادات المتغيرات للوضع المضيء (النهاري) --- */
+:root {
+    --font-sans: 'Tajawal', 'Plus Jakarta Sans', sans-serif;
+    
+    --bg-main: #ffffff;      /* خلفية الوضع المضيء بالكامل */
+    --bg-surface: #f4f7fa;   /* خلفية الأقسام الفرعية */
+    --bg-card: rgba(255, 255, 255, 0.8);
+    --border-color: rgba(10, 53, 124, 0.08);
+    --text-primary: #0a357c; 
+    --text-secondary: #000000;
+    --text-muted: #000000;
+    --primary: #0a357c;
+    --accent: #00b4b4; 
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(10, 53, 124, 0.06);
+    --shadow: 0 4px 6px -1px rgba(10, 53, 124, 0.05), 0 20px 40px -12px rgba(10, 53, 124, 0.08);
+    --gradient-text: linear-gradient(135deg, #0a357c 0%, #00b4b4 100%);
+}
 
-        [data-theme="dark"] {
-            /* لوحة ألوان أورانتوس الفاخرة - الوضع الداكن السيبراني */
-            --bg-main: #040b14;
-            --bg-surface: #071526;
-            --bg-card: rgba(7, 21, 38, 0.5);
-            --border-color: rgba(255, 255, 255, 0.05);
-            --text-primary: #f0f4f8;
-            --text-secondary: #9fb3c8;
-            --text-muted: #627d98;
-            --primary: #f0f4f8;
-            --accent: #00b4b4;
-            --glass-bg: rgba(4, 11, 20, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.05);
-            --shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5);
-            --gradient-text: linear-gradient(135deg, #ffffff 0%, #00b4b4 100%);
-        }
+/* --- 2. إعدادات المتغيرات للوضع الداكن (الليلي) --- */
+[data-theme="dark"] {
+    --bg-main: #040b14;      /* خلفية الوضع الداكن بالكامل */
+    --bg-surface: #071526;   /* خلفية الأقسام الفرعية */
+    --bg-card: rgba(7, 21, 38, 0.5);
+    --border-color: rgba(255, 255, 255, 0.05);
+    --text-primary: #f0f4f8;
+    --text-secondary: #9fb3c8;
+    --text-muted: #627d98;
+    --primary: #f0f4f8;
+    --accent: #00b4b4;
+    --glass-bg: rgba(4, 11, 20, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5);
+    --gradient-text: linear-gradient(135deg, #ffffff 0%, #00b4b4 100%);
+}
 
         * {
             box-sizing: border-box;
@@ -68,9 +67,20 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        body {
-            line-height: 1.8;
-        }
+        /* --- 3. ضبط كود الـ body ليتغير تلقائياً مع تفعيل الزر --- */
+body {
+    line-height: 1.8;
+    background-color: var(--bg-main); /* هنا يقرأ المتغير ديناميكياً بدون إجبار ثابت */
+    color: var(--text-primary);
+}
+
+[data-theme="light"] body {
+    background-color: #ffffff;
+}
+[data-theme="dark"] body {
+    background-color: #040b14;
+}
+
 
         section {
             padding: 140px 5%;
